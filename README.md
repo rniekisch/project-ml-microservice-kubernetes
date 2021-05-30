@@ -2,24 +2,9 @@
 
 ## Project Overview
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+This Repository contains the solution of the "Operationalize a Machine Learning Microservice API" project of the udacity "Cloud DevOps Engineer" nanodegree course. It is based on the course material found at https://github.com/udacity/DevOps_Microservices.
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
-
-### Project Tasks
-
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
-
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
-
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
+The project goal is to operationalize a working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. 
 
 ---
 
@@ -28,15 +13,44 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
 
+```
+$ python3 -m venv .devops
+$ source .devops/bin/activate
+$ make install
+```
+
 ### Running `app.py`
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+There are several options for using this service.
 
-### Kubernetes Steps
+#### Call the app directly (standalone)
+```
+python app.py
+```
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+#### Containerize the app and run it
+```
+./run_docker.sh
+```
+
+To call the service see [Get a prediction](#pred)
+
+#### Run the service on a kubernetes cluster
+
+Upload the container to docker hub
+```
+./upload_docker.sh
+```
+
+Run the container in a Kubernetes cluster. The container uploaded to the docker hub is used.
+```
+./run_kubernetes.sh
+```
+
+To call the service see [Get a prediction](#pred)
+
+### <a name="pred"></a> Get a prediction
+
+To get a prediction send a HTTP POST request to the endpoint `http://localhost:80/predict`.
+
+The script make_prediction.sh has an example call. Take a look at this script to find out about the HTTP POST call payload data.
