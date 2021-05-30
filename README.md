@@ -1,4 +1,4 @@
-[![<ORG_NAME>](https://circleci.com/gh/rniekisch/project-ml-microservice-kubernetes.svg?style=svg)]
+![<ORG_NAME>](https://circleci.com/gh/rniekisch/project-ml-microservice-kubernetes.svg?style=svg)
 
 https://app.circleci.com/pipelines/github/rniekisch/project-ml-microservice-kubernetes?branch=master
 
