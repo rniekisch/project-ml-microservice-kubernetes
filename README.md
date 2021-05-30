@@ -53,4 +53,4 @@ To call the service see [Get a prediction](#pred)
 
 To get a prediction send a HTTP POST request to the endpoint `http://localhost:80/predict`.
 
-The script make_prediction.sh has an example call. Take a look at this script to find out about the HTTP POST call payload data.
+You can also use the script `make_prediction.sh`, which also serves as an example for a valid HTTP POST request.
