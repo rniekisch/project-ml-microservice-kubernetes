@@ -15,6 +15,10 @@ install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 
+	# Install hadolint
+    wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.4.1/hadolint-Linux-x86_64 &&\
+    	chmod +x /bin/hadolint
+
 test:
 	# Additional, optional, tests could go here
 	#python -m pytest -vv --cov=myrepolib tests/*.py
